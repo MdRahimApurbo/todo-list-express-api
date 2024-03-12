@@ -1,0 +1,409 @@
+{
+	"info": {
+		"_postman_id": "de2bf062-3383-4691-bf33-5e6dd6195de1",
+		"name": "todo-list-express-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32457205"
+	},
+	"item": [
+		{
+			"name": "User Login/Register",
+			"item": [
+				{
+					"name": "CreateUser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token-key",
+								"value": "{{token-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"FirstName\": \"Engr.\",\r\n    \"LastName\": \"Apurbo\",\r\n    \"EmailAddress\":\"engr.apurbo@gmail.com\",\r\n    \"MobileNumber\": \"01601691177\",\r\n    \"City\": \"Dhaka\",\r\n    \"UserName\": \"engrapurbo\",\r\n    \"Password\": \"admin\"\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/CreateUser",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"CreateUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LoginProfile",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{token-key}}",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n\r\n    \"UserName\": \"engrapurbo\",\r\n    \"Password\": \"admin\"\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/LoginProfile",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"LoginProfile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Profile View",
+			"item": [
+				{
+					"name": "UsersProfile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token-key",
+								"value": "{{token-key}}",
+								"description": "{{token-key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/UsersProfile",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"UsersProfile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProfile",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token-key",
+								"value": "{{token-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n   \"FirstName\": \"Engr.\",\r\n    \"LastName\": \"Apurbo\",\r\n    \"EmailAddress\": \"engr.apurbo@gmail.com\",\r\n    \"MobileNumber\": \"01601691177\",\r\n    \"City\": \"Dhaka\",\r\n    \"Password\": \"admin\"\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/UpdateProfile",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"UpdateProfile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ToDo List Manager",
+			"item": [
+				{
+					"name": "CreateTodoList",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token-key",
+								"value": "{{token-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n\r\n    \"ToDosubject\": \"New List\",\r\n    \"ToDoDescription\": \"Apurbo\"\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/CreateTodoList",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"CreateTodoList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SelectTodoList",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token-key",
+								"value": "{{token-key}}",
+								"description": "{{token-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{baseurl}}/SelectTodoList",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"SelectTodoList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateTodoList",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token-key",
+								"value": "{{token-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"_id\": \"65f01b16844c99673ec11fbd\",\r\n    \"ToDosubject\": \"New\",\r\n    \"ToDoDescription\": \"Hello\"\r\n\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/UpdateTodoList",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"UpdateTodoList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateStatusTodoList",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token-key",
+								"value": "{{token-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"_id\": \"65f01b13844c99673ec11fb9\",\r\n    \"TodoStatus\": \"Cancel\"\r\n\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/updatestatustodolist",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"updatestatustodolist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteTodoList",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token-key",
+								"value": "{{token-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n\r\n    \"_id\": \"65f01dade319a0beec596e58\"\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/DeleteTodoList",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"DeleteTodoList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FilterStatusTodoList",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token-key",
+								"value": "{{token-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n\r\n    \"TodoStatus\": \"Cancel\"\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/FilterStatusTodoList",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"FilterStatusTodoList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FilterDateTodoList",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token-key",
+								"value": "{{token-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n\r\n    \"StartDate\": \"2024-03-10\",\r\n    \"EndDate\": \"2024-03-12\"\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/FilterDateTodoList",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"FilterDateTodoList"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"value": ""
+		},
+		{
+			"key": "baseurl",
+			"value": "localhost:5000/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "token-key",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTAzMTk2OTcsImRhdGEiOnsiX2lkIjoiNjVmMDE1ZTZiNDM3NjU5MDFiYzBiMmYxIiwiRmlyc3ROYW1lIjoiRW5nci4iLCJMYXN0TmFtZSI6IkFwdXJibyIsIkVtYWlsQWRkcmVzcyI6ImVuZ3IuYXB1cmJvQGdtYWlsLmNvbSIsIk1vYmlsZU51bWJlciI6IjAxNjAxNjkxMTc3IiwiQ2l0eSI6IkRoYWthIiwiVXNlck5hbWUiOiJlbmdyYXB1cmJvIiwiUGFzc3dvcmQiOiJhZG1pbiJ9LCJpYXQiOjE3MTAyMzMyOTd9.PDT5qtq29PZ4zoyQnpcV1oRZmz7ZaHdcN272MHGAjoM",
+			"type": "string"
+		}
+	]
+}
